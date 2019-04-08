@@ -78,4 +78,17 @@ h2 {
 .App-position-inline{
     display:inline;
 }
+.App-float{
+    position:relative;
+    display:inline;
+    float:left;
+    margin-right:2%;
+}
+.App-position-left{
+    float: left;
+    margin-right: 80%;
+}
+.App-position-inline{
+    display:inline;
+}
 
