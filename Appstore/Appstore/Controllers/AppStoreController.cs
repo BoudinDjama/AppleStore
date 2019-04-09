@@ -9,10 +9,7 @@ namespace Appstore.Controllers
     public class AppStoreController : Controller
     {
         // GET: Apps
-        public ActionResult Search()
-        {
-            return View();
-        }
+       
         public ActionResult Games()
         {
             return View();
@@ -23,7 +20,12 @@ namespace Appstore.Controllers
         }
         public ActionResult Today()
         {
+
             return View();
+        }
+        public ActionResult Category()
+        {
+            return Content("this will be the category pages");
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Appstore.Models
 
         public string ImagePath { get; set; }
 
+        public DateTime PublishDate { get; set; }
+
         public Category Category { get; set; }
         public Dev Dev { get; set; }
         public HashSet<Review> Reviews { get; set; } = new HashSet<Review>();

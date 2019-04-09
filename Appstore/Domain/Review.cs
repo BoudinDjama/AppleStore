@@ -13,6 +13,8 @@ namespace Appstore.Models
         public int Rating { get; set; }
         public string Description { get; set; }
 
+        public DateTime PublishDate { get; set; }
+
         public App App { get; set; }
 
     }
