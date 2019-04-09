@@ -4,13 +4,29 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Appstore.DataSqlite.Migrations;
+using Appstore.Models;
+
 
 namespace Appstore.DataSqlite
 {
     class AppstoreContext : DbContext
     {
-        Database.SetInitializer(
-            new MigrateDatabaseToLatestVersion
-            <AppstoreContext, AppstoreConfiguration>(true));
+        static AppstoreContext()
+        {
+            Database.SetInitializer(
+                new MigrateDatabaseToLatestVersion
+                <AppstoreContext, AppstoreConfiguration>(true));
+        }
+        public AppstoreContext() : base("name=demo")
+        {
+
+        }
+
+        public DbSet<App> Apps { get; set; }
+        public DbSet<Dev> Devs { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Review> Reviews { get; set; }
     }
 }
+

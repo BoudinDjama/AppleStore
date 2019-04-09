@@ -8,6 +8,8 @@
     using System.Data.Entity.Migrations;
     using System.Data.SQLite.EF6.Migrations;
     using System.Linq;
+    using Appstore.Models;
+
 
 
 
@@ -26,8 +28,26 @@
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            if (context.Devs.Any())
+                return;
+            
+            var microsoft = new Dev { Name = "Microsoft" };
+            var apple = new Dev { Name = "Apple" };
 
-       
+            microsoft.Apps.Add(new App { Name = "Office" });
+            microsoft.Apps.Add(new App { Description = "Suite Office incluant Word, PowerPoint et Excel" });
+            microsoft.Apps.Add(new App { Price = 399 });
+            microsoft.Apps.Add(new App { Downloads = 4000000 });
+           
+            apple.Apps.Add(new App { Name = "Itunes" });
+            apple.Apps.Add(new App { Description = "Logiciel permettant de stream et download de la musique" });
+            apple.Apps.Add(new App { Price = 0 });
+            apple.Apps.Add(new App { Downloads = 5982982 });
+
+            //context.Auteurs.AddOrUpdate(new Auteur { Nom = "Tolkien"});
+            context.Devs.Add(microsoft);
+            context.Devs.Add(apple);
+
         }
     }
 
