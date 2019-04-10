@@ -34,7 +34,7 @@ namespace Appstore.Controllers
         }
         public ActionResult Category()
         {
-            return Content("this will be the category pages");
+            return View();
         }
     }
 }
