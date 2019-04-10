@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
     using System.Data.Entity.Migrations;
     using System.Data.SQLite.EF6.Migrations;
-    using System.Linq;
+ 
     using Appstore.Models;
 
 

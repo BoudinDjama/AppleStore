@@ -10,7 +10,7 @@ using Appstore.Models;
 
 namespace Appstore.DataSqlite
 {
-    class AppstoreContext : DbContext
+    public class AppstoreContext : DbContext
     {
         static AppstoreContext()
         {
@@ -18,7 +18,7 @@ namespace Appstore.DataSqlite
                 new MigrateDatabaseToLatestVersion
                 <AppstoreContext, AppstoreConfiguration>(true));
         }
-        public AppstoreContext() : base("name=demo")
+        public AppstoreContext() : base("name=Appstore")
         {
 
         }
