@@ -35,6 +35,10 @@ namespace Appstore.Controllers
         {
             return View();
         }
+        public ActionResult AllApps()
+        {
+            return View();
+        }
         public ActionResult Publishers()
         {
             var publishers = db.Devs.ToList();

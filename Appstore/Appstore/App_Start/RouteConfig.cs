@@ -34,8 +34,8 @@ namespace Appstore
          // Le Path pour le Search Bar
             routes.MapRoute(
                name: "SearchRoute",
-               url: "AppStore/Search/{id}",
-               defaults: new { controller = "AppStore", action = "Search", id = UrlParameter.Optional }
+               url: "Applications/NewApp/{id}",
+               defaults: new { controller = "Applications", action = "NewApp", id = UrlParameter.Optional }
            );
 
          // La Page principal, le Path par defaut
