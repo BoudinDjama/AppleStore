@@ -91,4 +91,16 @@ h2 {
 .App-position-inline{
     display:inline;
 }
+.card-img-top {
+    position: relative;
+    border-radius: 20px 0 0 0;
+    height: 20vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    overflow: hidden;
+    z-index: 1;
+}
 
