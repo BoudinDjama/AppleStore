@@ -15,7 +15,6 @@ namespace Appstore.Controllers
         // GET: Apps
         public ActionResult Search()
         {
-            var  test = db.Devs.ToList() ;
             return View();
         }
         public ActionResult Games()
@@ -35,6 +34,27 @@ namespace Appstore.Controllers
         public ActionResult Category()
         {
             return Content("this will be the category pages");
+        }
+        public ActionResult Publishers()
+        {
+            var publishers = db.Devs.ToList();
+            return View("Publishers",publishers);
+        }
+
+        [HttpPost]
+        public ViewResult Publishers(string filter)
+        {
+            filter.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Devs.ToList());
+            }
+            var publishers = db.Devs.Where(x =>
+            x.Name.ToLower().Contains(filter) ||
+            x.Description.ToLower().Contains(filter) ||
+            x.Email.ToLower().Contains(filter)).ToList();
+            return View(publishers);
         }
     }
 }
