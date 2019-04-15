@@ -35,6 +35,14 @@ namespace Appstore.Controllers
         {
             return View();
         }
+        public ActionResult CategoryView()
+        {
+            // var categories = db.Apps.Where(x => x.Category.Name == category).ToList();
+            //var categories = db.Apps.Where(x => x.Category.Name == "Games").ToList();
+            var categories = db.Categories.ToList();
+            return View("CategoryView", categories);
+           
+        }
         public ActionResult AllApps()
         {
             return View();
@@ -59,6 +67,21 @@ namespace Appstore.Controllers
             x.Description.ToLower().Contains(filter) ||
             x.Email.ToLower().Contains(filter)).ToList();
             return View(publishers);
+        }
+
+        [HttpPost]
+        public ViewResult Categories(string filter)
+        {
+            filter.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Categories.ToList());
+            }
+            var categories = db.Categories.Where(x =>
+            x.Name.ToLower().Contains(filter) ||
+            x.Description.ToLower().Contains(filter)).ToList();
+            return View(categories);
         }
     }
 }
