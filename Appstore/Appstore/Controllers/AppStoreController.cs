@@ -56,12 +56,13 @@ namespace Appstore.Controllers
         [HttpPost]
         public ViewResult Publishers(string filter)
         {
-            filter.ToLower().Trim();
 
             if (string.IsNullOrWhiteSpace(filter))
             {
                 return View(db.Devs.ToList());
             }
+            filter.ToLower().Trim();
+
             var publishers = db.Devs.Where(x =>
             x.Name.ToLower().Contains(filter) ||
             x.Description.ToLower().Contains(filter) ||

@@ -1,13 +1,17 @@
-﻿@model Appstore.Models.Dev
+﻿<link rel="stylesheet" href="..\..\Content\AppsStyle.css">
+
+
+@model Appstore.Models.Dev
 
 @{
+
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>Dev</h4>
+    <h4>Publisher</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,3 +44,36 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Publishers", "Appstore")
 </p>
+<h3>
+    Apps by @Html.DisplayFor(model => model.Name)
+</h3>
+@using Appstore.DataSqlite;
+@using Appstore.Models;
+@{
+    AppstoreContext db = new AppstoreContext();
+
+    IEnumerable<App> apps =
+        (from e in db.Apps
+         where e.Dev.Id == Model.Id
+         select e)
+             .Take(100);
+}
+@foreach (App a in apps)
+{
+    App item = (App)a;
+    <div class="App-wrapper App-float">
+        <div>
+        <img class="App-Image" src="..\..\Images\Apex-legends.jpg">
+         </div>
+        <div>
+        <div class="App-categorie-date"> @item.PublishDate / Games</div>
+
+        <div class="App-Name">@item.Name</div>
+        <div class="App-Description App-Price-Description">@item.Description</div>
+        <div class="App-Price App-Price-Description">@item.Price $</div>
+        </div>
+    </div>
+}
+
+
+

@@ -35,7 +35,7 @@ namespace Appstore.Controllers
                 // TODO: Add insert logic here
                 db.Devs.Add(dev);
                 db.SaveChanges();
-                return RedirectToAction("Publishers", "Appstore");
+                return View();
             }
             catch
             {
@@ -82,8 +82,10 @@ namespace Appstore.Controllers
             try
             {
                 // TODO: Add delete logic here
-                
-                return RedirectToAction("Index");
+                var dev = db.Devs.First(x => x.Id == id);
+                db.Devs.Remove(dev);
+                db.SaveChanges();
+                return RedirectToAction("Publishers", "Appstore");
             }
             catch
             {
