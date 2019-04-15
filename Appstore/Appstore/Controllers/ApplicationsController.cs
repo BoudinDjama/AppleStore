@@ -8,10 +8,14 @@ namespace Appstore.Controllers
 {
     public class ApplicationsController : Controller
     {
+        AppstoreContext db = new AppstoreContext();
+
         // GET: Applications
         public ActionResult NewApp()
         {
             return View();
         }
+       
+        
     }
 }
