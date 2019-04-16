@@ -25,7 +25,7 @@ namespace Appstore.Controllers
         {
             try
             {
-                app.PublishDate = DateTime.Now.ToString("MMM dd yyyy");
+                app.PublishDate = DateTime.Now;
                 db.Apps.Add(app);
                 db.SaveChanges();
                 return View();
