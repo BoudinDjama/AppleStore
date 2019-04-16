@@ -3,56 +3,78 @@
 @{
     ViewBag.Title = "Apps";
 }
+<head>
+    <link rel="stylesheet" href="..\Content\AppsStyle.css">
+</head>
 
 <h2>Apps</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+<div style="float:left; margin:5px;">
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.ActionLink("Create New", "NewApp", "Applications")
+        </p>
+    }
+
+</div>
 <div style="float:left; margin:5px; ">
     @using (Html.BeginForm())
     {
         <p>
             @Html.TextBox("filter")
-            <input type="submit" value="Search" />
+            <input class="btn" type="submit" value="Search" />
         </p>
     }
 </div>
 
-<table class="table table-bordered table-responsive table-hover">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
+<div style="float:left; margin:5px; ">
+    @using (Html.BeginForm())
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", "Publishers", new { id = item.Id }, null) |
-                @Html.ActionLink("Details", "Details", "Publishers", new { id = item.Id }, null) |
-                @Html.ActionLink("Delete", "Delete", "Publishers", new { id = item.Id }, null)
-            </td>
-        </tr>
+        <p>
+            <input class="btn" type="submit" value="See all" />
+        </p>
     }
+</div>
 
-</table>
+<br style="clear:left;">
+
+@foreach (var item in Model)
+{
+    if (item.Id % 4 != 0)
+    {
+<h4  onclick="location.href='@Url.Action("AppDetails", "Applications", new { id = item.Id })'">
+        
+
+    <div class="App-wrapper App-float">
+        <img class="App-Image" src=" @Html.DisplayFor(modelItem => item.ImagePath)">
+        <div class="App-categorie-date">@Html.DisplayFor(modelItem => item.PublishDate) / GAMES</div>
+
+        <div class="App-Name"> @Html.DisplayFor(modelItem => item.Name)</div>
+        <div class="App-Description App-Price-Description">@Html.DisplayFor(modelItem => item.Description)</div>
+        <div class="App-Price App-Price-Description">@Html.DisplayFor(modelItem => item.Price)$</div>
+
+
+    </div>
+    
+</h4>  
+    }
+    else if (item.Id % 4 == 0)
+    {
+<h4  onclick="location.href='@Url.Action("AppDetails", "Applications", new { id = item.Id })'">
+        
+    <div class="App-wrapper App-float App-Last">
+        <img class="App-Image" src=" @Html.DisplayFor(modelItem => item.ImagePath)">
+        <div class="App-categorie-date">NOV 2 2010 / GAMES</div>
+
+        <div class="App-Name"> @Html.DisplayFor(modelItem => item.Name)</div>
+        <div class="App-Description App-Price-Description">@Html.DisplayFor(modelItem => item.Description)</div>
+        <div class="App-Price App-Price-Description">@Html.DisplayFor(modelItem => item.Price)$</div>
+
+    </div>
+</h4>
+
+    }
+}
 

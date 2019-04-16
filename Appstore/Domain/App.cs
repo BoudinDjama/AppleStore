@@ -15,7 +15,7 @@ namespace Appstore.Models
 
         public string ImagePath { get; set; }
 
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
 
         public Category Category { get; set; }
         public Dev Dev { get; set; }
