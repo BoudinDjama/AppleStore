@@ -217,7 +217,6 @@
     <Content Include="Views\AppStore\Today.cshtml" />
     <Content Include="Views\AppStore\Games.cshtml" />
     <Content Include="Views\AppStore\Search.cshtml" />
-    <Content Include="Views\AppStore\Apps.cshtml" />
     <Content Include="Views\AppStore\Category.cshtml" />
     <Content Include="Views\AppStore\Publishers.cshtml" />
     <Content Include="Views\Publishers\Create.cshtml" />
@@ -230,11 +229,6 @@
     <Content Include="Views\Applications\Delete.cshtml" />
     <Content Include="Views\Applications\Create.cshtml" />
     <Content Include="Views\Applications\NewApp.cshtml" />
-    <Content Include="Views\AppStore\CategoryView.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
