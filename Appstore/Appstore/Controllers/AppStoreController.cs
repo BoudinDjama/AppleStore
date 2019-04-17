@@ -13,16 +13,7 @@ namespace Appstore.Controllers
 
         AppstoreContext db = new AppstoreContext();
         // GET: Apps
-        public ActionResult Search()
-        {
-            return View();
-        }
-        public ActionResult Games()
-        {
-            var test = db.Devs.ToList();
-
-            return View();
-        }
+       
         public ActionResult Apps()
         {
             var app = db.Apps.ToList();
@@ -46,10 +37,7 @@ namespace Appstore.Controllers
             return View("CategoryView", categories);
            
         }
-        public ActionResult AllApps()
-        {
-            return View();
-        }
+        
         public ActionResult Publishers()
         {
             var publishers = db.Devs.ToList();
