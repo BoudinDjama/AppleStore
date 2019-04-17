@@ -34,7 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -225,7 +225,6 @@
     <Content Include="Views\Publishers\Details.cshtml" />
     <Content Include="Views\Publishers\Edit.cshtml" />
     <Content Include="Views\Publishers\Delete.cshtml" />
-    <Content Include="Views\AppStore\AllApps.cshtml" />
     <Content Include="Views\Applications\NewApp.cshtml" />
     <Content Include="Views\AppStore\CategoryView.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />

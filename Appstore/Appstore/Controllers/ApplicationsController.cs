@@ -15,9 +15,8 @@ namespace Appstore.Controllers
         // GET: Applications
         public ActionResult NewApp()
         {
-
-            var dev = db.Devs.Select(x => x.Name);
-            return View(dev);
+            
+            return View();
         }
         //post
         [HttpPost]
@@ -28,7 +27,7 @@ namespace Appstore.Controllers
                 app.PublishDate = DateTime.Now;
                 db.Apps.Add(app);
                 db.SaveChanges();
-                return View();
+                return RedirectToAction("Apps", "Appstore");
             }
             catch
             {

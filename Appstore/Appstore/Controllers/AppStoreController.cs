@@ -30,7 +30,9 @@ namespace Appstore.Controllers
         }
         public ActionResult Today()
         {
-            return View();
+            var app = db.Apps.ToList().OrderByDescending(x => x.PublishDate).Select(x=>x).Take(4);
+
+            return View("Today",app);
         }
         public ActionResult Category()
         {
