@@ -30,9 +30,10 @@
             //  to avoid creating duplicate seed data.
             if (context.Devs.Any())
                 return;
-            
+
             var microsoft = new Dev { Name = "Microsoft" };
             var apple = new Dev { Name = "Apple" };
+            var games = new Category { Name = "Games" };
 
             microsoft.Apps.Add(new App { Name = "Office" });
             microsoft.Apps.Add(new App { Description = "Suite Office incluant Word, PowerPoint et Excel" });
@@ -44,9 +45,15 @@
             apple.Apps.Add(new App { Price = 0 });
             apple.Apps.Add(new App { Downloads = 5982982 });
 
+            games.Apps.Add(new App { Name = "Call of duty"});
+            games.Apps.Add(new App { Description = "First person shooter" });
+            games.Apps.Add(new App { Price = 70 });
+            games.Apps.Add(new App { Downloads = 90000000 });
+
             //context.Auteurs.AddOrUpdate(new Auteur { Nom = "Tolkien"});
             context.Devs.Add(microsoft);
             context.Devs.Add(apple);
+            context.Categories.Add(games);
 
         }
     }

@@ -25,7 +25,8 @@ namespace Appstore.Controllers
         }
         public ActionResult Apps()
         {
-            return View();
+            var app = db.Apps.ToList();
+            return View("Apps", app);
         }
         public ActionResult Today()
         {
@@ -34,6 +35,14 @@ namespace Appstore.Controllers
         public ActionResult Category()
         {
             return View();
+        }
+        public ActionResult CategoryView()
+        {
+            // var categories = db.Apps.Where(x => x.Category.Name == category).ToList();
+            //var categories = db.Apps.Where(x => x.Category.Name == "Games").ToList();
+            var categories = db.Categories.ToList();
+            return View("CategoryView", categories);
+           
         }
         public ActionResult AllApps()
         {
@@ -60,6 +69,39 @@ namespace Appstore.Controllers
             x.Description.ToLower().Contains(filter) ||
             x.Email.ToLower().Contains(filter)).ToList();
             return View(publishers);
+        }
+
+        [HttpPost]
+        public ViewResult Categories(string filter)
+        {
+            filter.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Categories.ToList());
+            }
+            var categories = db.Categories.Where(x =>
+            x.Name.ToLower().Contains(filter) ||
+            x.Description.ToLower().Contains(filter)).ToList();
+            return View(categories);
+        }
+        [HttpPost]
+        public ViewResult Apps(string filter)
+        {
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Devs.ToList());
+            }
+            filter.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Apps.ToList());
+            }
+            var apps = db.Apps.Where(x =>
+            x.Name.ToLower().Contains(filter) ||
+            x.Description.ToLower().Contains(filter)).ToList();
+            return View(apps);
         }
     }
 }

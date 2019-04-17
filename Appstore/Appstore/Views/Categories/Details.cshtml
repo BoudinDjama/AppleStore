@@ -1,4 +1,4 @@
-﻿@model Appstore.Models.Dev
+﻿@model Appstore.Models.Category
 
 @{
     ViewBag.Title = "Details";
@@ -26,17 +26,9 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Publishers", "Appstore")
+    @Html.ActionLink("Back to List", "CategoryView", "Appstore")
 </p>
