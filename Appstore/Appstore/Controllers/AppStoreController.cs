@@ -25,11 +25,14 @@ namespace Appstore.Controllers
         }
         public ActionResult Apps()
         {
-            return View();
+            var app = db.Apps.ToList();
+            return View("Apps", app);
         }
         public ActionResult Today()
         {
-            return View();
+            var app = db.Apps.ToList().OrderByDescending(x => x.PublishDate).Select(x=>x).Take(4);
+
+            return View("Today",app);
         }
         public ActionResult Category()
         {
@@ -83,6 +86,24 @@ namespace Appstore.Controllers
             x.Name.ToLower().Contains(filter) ||
             x.Description.ToLower().Contains(filter)).ToList();
             return View(categories);
+        }
+        [HttpPost]
+        public ViewResult Apps(string filter)
+        {
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Devs.ToList());
+            }
+            filter.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                return View(db.Apps.ToList());
+            }
+            var apps = db.Apps.Where(x =>
+            x.Name.ToLower().Contains(filter) ||
+            x.Description.ToLower().Contains(filter)).ToList();
+            return View(apps);
         }
     }
 }

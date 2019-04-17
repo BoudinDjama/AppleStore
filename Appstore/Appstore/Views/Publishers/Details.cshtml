@@ -5,10 +5,9 @@
 
 @{
 
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Publisher Details";
 }
 
-<h2>Details</h2>
 
 <div>
     <h4>Publisher</h4>
@@ -47,30 +46,26 @@
 <h3>
     Apps by @Html.DisplayFor(model => model.Name)
 </h3>
-@using Appstore.DataSqlite;
 @using Appstore.Models;
-@{
-    AppstoreContext db = new AppstoreContext();
-
-    IEnumerable<App> apps =
-        (from e in db.Apps
-         where e.Dev.Id == Model.Id
-         select e)
-             .Take(100);
-}
-@foreach (App a in apps)
+@if (Model.Apps.Count < 1)
 {
-    App item = (App)a;
+
+    <h4>
+        No app(s) found
+    </h4>
+}
+@foreach (App item in Model.Apps.Take(10))
+{
     <div class="App-wrapper App-float">
         <div>
-        <img class="App-Image" src="..\..\Images\Apex-legends.jpg">
-         </div>
+            <img class="App-Image" src="..\..\Images\Apex-legends.jpg">
+        </div>
         <div>
-        <div class="App-categorie-date"> @item.PublishDate / Games</div>
+            <div class="App-categorie-date"> @item.PublishDate / Games</div>
 
-        <div class="App-Name">@item.Name</div>
-        <div class="App-Description App-Price-Description">@item.Description</div>
-        <div class="App-Price App-Price-Description">@item.Price $</div>
+            <div class="App-Name">@item.Name</div>
+            <div class="App-Description App-Price-Description">@item.Description</div>
+            <div class="App-Price App-Price-Description">@item.Price $</div>
         </div>
     </div>
 }
