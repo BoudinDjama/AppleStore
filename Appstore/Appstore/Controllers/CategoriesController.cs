@@ -85,7 +85,9 @@ namespace Appstore.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                var cat = db.Categories.First(x => x.Id == id);
+                db.Categories.Remove(cat);
+                db.SaveChanges();
                 return RedirectToAction("CategoryView", "Appstore");
             }
             catch

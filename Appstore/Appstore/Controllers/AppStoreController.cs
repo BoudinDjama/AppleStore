@@ -40,8 +40,7 @@ namespace Appstore.Controllers
         }
         public ActionResult CategoryView()
         {
-            // var categories = db.Apps.Where(x => x.Category.Name == category).ToList();
-            //var categories = db.Apps.Where(x => x.Category.Name == "Games").ToList();
+           
             var categories = db.Categories.ToList();
             return View("CategoryView", categories);
            
@@ -72,34 +71,32 @@ namespace Appstore.Controllers
             x.Email.ToLower().Contains(filter)).ToList();
             return View(publishers);
         }
-
         [HttpPost]
-        public ViewResult Categories(string filter)
+        public ViewResult CategoryView(string filter)
         {
-            filter.ToLower().Trim();
 
             if (string.IsNullOrWhiteSpace(filter))
             {
                 return View(db.Categories.ToList());
             }
+            filter.ToLower().Trim();
+
             var categories = db.Categories.Where(x =>
             x.Name.ToLower().Contains(filter) ||
             x.Description.ToLower().Contains(filter)).ToList();
             return View(categories);
         }
+
         [HttpPost]
         public ViewResult Apps(string filter)
         {
             if (string.IsNullOrWhiteSpace(filter))
             {
-                return View(db.Devs.ToList());
+                return View(db.Apps.ToList());
             }
             filter.ToLower().Trim();
 
-            if (string.IsNullOrWhiteSpace(filter))
-            {
-                return View(db.Apps.ToList());
-            }
+       
             var apps = db.Apps.Where(x =>
             x.Name.ToLower().Contains(filter) ||
             x.Description.ToLower().Contains(filter)).ToList();

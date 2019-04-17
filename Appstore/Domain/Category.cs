@@ -13,7 +13,7 @@ namespace Appstore.Models
         
 
 
-        public HashSet<App> Apps { get; set; }
+        public HashSet<App> Apps { get; set; } = new HashSet<App>();
 
     }
 }
