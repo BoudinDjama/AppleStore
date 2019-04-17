@@ -58,9 +58,9 @@
 @{ 
     Appstore.Models.App items = Model.Select(x => x).OrderByDescending(x => x.Downloads).FirstOrDefault();
 
-<h4 class="Today-Best-App">App of the day :</h4>
+<h4 class="Today-Best-App" >App of the day :</h4>
 
-<div class="Today-wrapper ">
+<div class="Today-wrapper " onclick="location.href='@Url.Action("AppDetails", "Applications", new { id = items.Id })'">
     <div class="Today-categorie-date" style="text-align:center">Download Now</div>
 
     <img class="Today-Image" src="@Html.DisplayFor(modelItem => items.ImagePath)">
