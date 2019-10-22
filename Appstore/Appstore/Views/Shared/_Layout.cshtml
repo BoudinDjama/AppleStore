@@ -7,34 +7,29 @@
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="..\Content\AppsStyle.css">
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("App Store", "Today", "AppStore", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Today", "Today", "AppStore")</li>
-                    <li>@Html.ActionLink("Apps", "Apps", "AppStore")</li>
-                    <li>@Html.ActionLink("Category", "Category", "AppStore")</li>
-                    <li>@Html.ActionLink("Publishers", "Publishers", "AppStore")</li>
 
-                </ul>
-            </div>
-        </div>
-    </div>
+<body>
+    
+    <nav>
+        <div class="logo"><h4>
+    @Html.ActionLink("App Store", "Today", "AppStore", new { area = "" }, new { @class = "navbar-brand" })
+    </h4></div>
+
+        <ul class="nav-links">
+            <li>@Html.ActionLink("Apps", "Apps", "AppStore")</li>
+            <li>@Html.ActionLink("Categories", "CategoryView", "AppStore")</li>
+            <li>@Html.ActionLink("Publishers", "Publishers", "AppStore")</li>
+        </ul>
+
+    </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        
         <footer>
-            <p>&copy; @DateTime.Now.Year - App Store</p>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Boudin Djama</p>
         </footer>
     </div>
 

@@ -1,5 +1,6 @@
 ﻿@model Appstore.Models.Dev
 
+<link rel="stylesheet" href="..\..\Content\AppsStyle.css">
 @{
     ViewBag.Title = "Delete publisher";
 }
@@ -35,12 +36,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Publishers" , "Appstore")
+            @Html.ActionLink("Back to List", "Publishers", "Appstore")
         </div>
     }
 </div>

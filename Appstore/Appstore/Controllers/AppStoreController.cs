@@ -16,7 +16,7 @@ namespace Appstore.Controllers
        
         public ActionResult Apps()
         {
-            var app = db.Apps.ToList();
+            var app = db.Apps.ToList().OrderBy(x=>x.Name);
             return View("Apps", app);
         }
         public ActionResult Today()
@@ -27,12 +27,13 @@ namespace Appstore.Controllers
         }
         public ActionResult Category()
         {
-            return View();
+            var categories = db.Categories.ToList();
+            return View("Category", categories);
         }
         public ActionResult CategoryView()
         {
            
-            var categories = db.Categories.ToList();
+            var categories = db.Categories.ToList().OrderBy(x=>x.Name);
             return View("CategoryView", categories);
            
         }

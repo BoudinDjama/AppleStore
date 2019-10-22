@@ -1,5 +1,6 @@
 ﻿@model Appstore.Models.App
 
+<link rel="stylesheet" href="..\..\Content\AppsStyle.css">
 @{
     ViewBag.Title = "EditApp";
 }
@@ -10,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>App</h4>
         <hr />
@@ -74,7 +75,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Apps","Appstore")
+    @Html.ActionLink("Back to List", "Apps", "Appstore")
 </div>
 
 @section Scripts {

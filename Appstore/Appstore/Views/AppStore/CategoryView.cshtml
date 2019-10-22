@@ -1,22 +1,27 @@
-﻿@model IEnumerable<Appstore.Models.Category>
+﻿
+@model IEnumerable<Appstore.Models.Category>
+
+<head>
+    <link rel="stylesheet" href="..\..\Content\AppsStyle.css">
+</head>
 
 @{
-    ViewBag.Title = "CategoryView";
+    ViewBag.Title = "Categories";
 }
+<h2 style="margin-top:15px;">Categories</h2>
 
-<h2>CategoryView</h2>
+<br style="clear:left;">
 
-<div style="float:left; margin:5px;">
+<div style="float:left; margin:5px; margin-top:40px;">
     @using (Html.BeginForm())
     {
         <p>
             @Html.ActionLink("Create New", "Create", "Categories")
-
         </p>
     }
 
 </div>
-<div style="float:left; margin:5px; ">
+<div style="float:left; margin:5px; margin-top:40px;">
     @using (Html.BeginForm())
     {
         <p>
@@ -26,7 +31,7 @@
     }
 </div>
 
-<div style="float:left; margin:5px; ">
+<div style="float:left; margin:5px; margin-top:40px;">
     @using (Html.BeginForm())
     {
         <p>
@@ -35,46 +40,18 @@
     }
 </div>
 
+<br style="clear:left;">
+@foreach (var item in Model)
+{
+    
+        <h4 onclick="location.href='@Url.Action("Apps", "AppStore")'">
+            <div class="category-wrapper category-one">
+                <h1> @Html.DisplayFor(modelItem => item.Name) </h1>
+            </div>
+        </h4>
+    
+    
+}
 
-<table class="table table-bordered table-responsive table-hover">
-    <thead>
-        <tr style="color:white; background-color:black; ">
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
 
-            <th></th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
 
-        <td style="align-content:center;">
-            <button style="background-color:darkblue;color:white;border-radius:8px;"
-                    onclick="location.href='@Url.Action("Edit", "Categories", new { id = item.Id })'">
-                Edit
-            </button>
-            <button style="background-color:black;color:white;border-radius:8px;"
-                    onclick="location.href='@Url.Action("Details", "Categories", new { id = item.Id })'">
-                Details
-            </button>
-            <button style="background-color:darkred;color:white;border-radius:8px;"
-                    onclick="location.href='@Url.Action("Delete", "Categories", new { id = item.Id })'">
-                Delete
-            </button>
-
-        </td>
-    </tr>
-    }
-
-</table>

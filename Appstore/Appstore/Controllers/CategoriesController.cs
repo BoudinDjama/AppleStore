@@ -11,13 +11,9 @@ namespace Appstore.Controllers
     public class CategoriesController : Controller
     {
         AppstoreContext db = new AppstoreContext();
-        // GET: Categories
+        
 
-        public ActionResult Index()
-        {
-            return View(); 
-        }
-
+        
         // GET: Categories/Details/5
         public ActionResult Details(int id)
         {

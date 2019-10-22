@@ -1,14 +1,69 @@
-﻿.App-wrapper {
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #eee;
+}
+
+.logo {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: black;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%
+}
+
+ul {
+    color: black;
+}
+
+.nav-links li {
+    list-style: none;
+    color: black;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.App-wrapper {
     position: relative;
     height: 45vh;
     width: 20%;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
-    
+    margin-bottom:15px;
 }
 .App-Today-wrapper {
-    position: relative;
+    
     height: 45vh;
     width: 20%;
     border-radius: 20px;
@@ -44,7 +99,6 @@
 }
 
 .App-Image {
-    position: relative;
     border-radius: 20px 0 0 0;
     height: 20vh;
     width: 100%;
@@ -107,7 +161,7 @@ h2 {
     display:inline;
 }
 .App-Last{
-    margin-right:15px;
+    
 }
 .card-img-top {
     position: relative;
@@ -189,4 +243,36 @@ h2 {
     margin-top: 40px;
     float: left;
     margin: 5px;
+}
+.body-content{
+    padding-top:15px;
+}
+footer{
+    position:relative;
+    clear:both;
+}
+.category-wrapper {
+    height: 45px;
+    width: 60%;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: 15px;
+    text-align:center;
+    color:antiquewhite;
+}
+    .category-wrapper:hover {
+    
+    opacity:.75;
+    }
+.category-one {
+    background-image: url("https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_960_720.jpg");
+}
+.category-two {
+    background-image: url("https://cdn.pixabay.com/photo/2015/08/28/11/27/space-911785_960_720.jpg");
+}
+.category-three {
+    background-image: url("https://cdn.pixabay.com/photo/2015/11/04/20/59/milky-way-1023340_960_720.jpg");
+}
+.category-four {
+    background-image: url("https://cdn.pixabay.com/photo/2015/11/04/20/59/milky-way-1023340_960_720.jpg");
 }
